@@ -8,7 +8,7 @@ from config import API_ID, API_HASH, DAILY_LIMIT, KEYWORDS
 from sheets import already_contacted, save_user, mark_replied
 from utils import generate_message
 
-client = TelegramClient('session', API_ID, API_HASH)
+client = TelegramClient('fear', API_ID, API_HASH)
 
 sent_today = 0
 
