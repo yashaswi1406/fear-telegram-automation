@@ -2,3 +2,4 @@ telethon
 gspread
 oauth2client
 python-dotenv
+telethon==1.36.0
