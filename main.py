@@ -98,7 +98,7 @@ async def main():
 
     asyncio.create_task(safety_loop())
 
-    await client.run_until_disconnected()
+    await asyncio.sleep(21600)
 
 
 if __name__ == "__main__":
