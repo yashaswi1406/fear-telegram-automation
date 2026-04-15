@@ -2,7 +2,7 @@ name: Telegram Bot Auto Run
 
 on:
   schedule:
-    - cron: "0 3 * * *"   # runs once daily (UTC time)
+    - cron: "0 3 * * *"   # runs daily (8:30 AM IST)
   workflow_dispatch:
 
 jobs:
@@ -16,10 +16,12 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v4
       with:
-        python-version: "3.11"
+        python-version: "3.10"
 
     - name: Install dependencies
       run: pip install -r requirements.txt
 
     - name: Run bot for 6 hours
+      env:
+        GOOGLE_CREDS: ${{ secrets.GOOGLE_CREDS }}
       run: timeout 21600 python main.py
