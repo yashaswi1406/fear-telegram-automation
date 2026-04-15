@@ -8,6 +8,7 @@ from config import API_ID, API_HASH, DAILY_LIMIT, KEYWORDS
 from sheets import already_contacted, save_user, mark_replied
 from utils import generate_message
 
+# ✅ Use existing session (fear.session file)
 client = TelegramClient('fear', API_ID, API_HASH)
 
 sent_today = 0
@@ -88,7 +89,15 @@ async def safety_loop():
 
 # ▶️ Start
 async def main():
-    await client.start()
+    # ❌ DO NOT use client.start()
+    # ✅ Use connect instead
+    await client.connect()
+
+    # ✅ Check if session exists
+    if not await client.is_user_authorized():
+        print("❌ Session not found. Please login locally first.")
+        return
+
     print("🚀 FEAR Automation Running...")
 
     asyncio.create_task(safety_loop())
