@@ -6,8 +6,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Telegram
-API_ID = int(os.getenv("API_ID"))
-API_HASH = os.getenv("API_HASH")
+API_ID = int(os.getenv("34368477"))
+API_HASH = os.getenv("2fc3a434abba372ee86d42c6277fb636")
 
 # Google Sheets
 GOOGLE_CREDS = json.loads(os.getenv("GOOGLE_CREDS"))
